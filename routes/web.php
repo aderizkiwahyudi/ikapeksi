@@ -9,6 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShowNews;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +65,13 @@ Route::group(['prefix' => 'administrator'], function(){
             Route::get('/delete/{id}', [ProgramController::class, 'delete'])->name('program.delete');
         });
 
+        Route::group(['prefix' => 'review'], function(){
+            Route::get('/', [ReviewController::class, 'view_index'])->name('review.view.index');
+            Route::post('/', [ReviewController::class, 'create'])->name('review.create');
+            Route::post('/edit/{id}', [ReviewController::class, 'edit'])->name('review.edit');
+            Route::get('/delete/{id}', [ReviewController::class, 'delete'])->name('review.delete');
+        });
+
         Route::group(['prefix' => 'laporan'], function(){
             Route::get('/', [ReportController::class, 'view_index'])->name('laporan.view.index');
             Route::post('/', [ReportController::class, 'create'])->name('laporan.create');
@@ -113,6 +121,9 @@ Route::group(['prefix' => 'administrator'], function(){
 
         Route::get('/pengaturan', [DashboardController::class, 'view_pengaturan'])->name('pengaturan.view.edit');
         Route::post('/pengaturan', [DashboardController::class, 'pengaturan'])->name('pengaturan.edit');
+
+        Route::get('/pengaturan-web', [DashboardController::class, 'view_pengaturan_web'])->name('pengaturan.web.view.edit');
+        Route::post('/pengaturan-web', [DashboardController::class, 'pengaturan_web'])->name('pengaturan.web.edit');
         
         Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
 
@@ -125,6 +136,7 @@ Route::group(['prefix' => 'administrator'], function(){
             Route::get('/laporan/{id}', [ReportController::class, 'files'])->name('laporan.files.index');
             Route::get('/galeri', [GalleryController::class, 'index'])->name('galeri.index');
             Route::get('/galeri/{id}', [GalleryController::class, 'getPhotos'])->name('galeri.photo.index');
+            Route::get('/review', [ReviewController::class, 'index'])->name('review.index');
         });
     });
 });

@@ -140,6 +140,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ url('administrator/review') }}" class="nav-link">
+                        <i class="nav-icon fas fa-star"></i>
+                        <p>
+                            Ulasan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('administrator/pengaturan-web') }}" class="nav-link">
+                        <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            Web
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ url('administrator/pengaturan') }}" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>

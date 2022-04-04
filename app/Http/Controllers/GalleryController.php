@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
 use App\Models\Gallery;
-use App\Models\News;
-use App\Models\News_category;
 use App\Models\Photo;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
